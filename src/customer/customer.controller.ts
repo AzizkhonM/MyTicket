@@ -2,23 +2,29 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { CustomerService } from './customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
+import { Customer } from './models/customer.model';
 
 @Controller('customer')
 export class CustomerController {
-  constructor(private readonly customerService: CustomerService) {}
+  constructor(private readonly customerService: CustomerService) { }
 
-  @Post()
-  create(@Body() createCustomerDto: CreateCustomerDto) {
-    return this.customerService.create(createCustomerDto);
+  @Post("register")
+  register(@Body() createCustomerDto: CreateCustomerDto): Promise<Customer> {
+    return this.customerService.register(createCustomerDto);
   }
 
-  @Get()
-  findAll() {
+  @Post("login")
+  login(@Body() createCustomerDto: CreateCustomerDto) {
+    return this.customerService.login(createCustomerDto);
+  }
+
+  @Get("all")
+  findAll(): Promise<Customer[]> {
     return this.customerService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: string): Promise<Customer> {
     return this.customerService.findOne(+id);
   }
 

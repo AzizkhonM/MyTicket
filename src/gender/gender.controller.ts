@@ -2,23 +2,24 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { GenderService } from './gender.service';
 import { CreateGenderDto } from './dto/create-gender.dto';
 import { UpdateGenderDto } from './dto/update-gender.dto';
+import { Gender } from './models/gender.model';
 
 @Controller('gender')
 export class GenderController {
   constructor(private readonly genderService: GenderService) {}
 
-  @Post()
-  create(@Body() createGenderDto: CreateGenderDto) {
+  @Post("add")
+  create(@Body() createGenderDto: CreateGenderDto): Promise<Gender> {
     return this.genderService.create(createGenderDto);
   }
 
-  @Get()
-  findAll() {
+  @Get("all")
+  findAll(): Promise<Gender[]> {
     return this.genderService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: string): Promise<Gender> {
     return this.genderService.findOne(+id);
   }
 

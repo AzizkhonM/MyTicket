@@ -13,6 +13,8 @@ import { RegionModule } from './region/region.module';
 import { DistrictModule } from './district/district.module';
 import { CustomerModule } from './customer/customer.module';
 import { GenderModule } from './gender/gender.module';
+import { LangModule } from './lang/lang.module';
+import { CustomerAddressModule } from './customer_address/customer_address.module';
 
 @Module({
   imports: [
@@ -36,7 +38,9 @@ import { GenderModule } from './gender/gender.module';
     RegionModule,
     DistrictModule,
     CustomerModule,
-    GenderModule
+    GenderModule,
+    LangModule,
+    CustomerAddressModule
   ],
   controllers: [AppController],
   providers: [AppService],
