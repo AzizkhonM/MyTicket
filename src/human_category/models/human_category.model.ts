@@ -1,14 +1,15 @@
 import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
-import { Customer } from "../../customer/models/customer.model";
 import { Event } from "../../event/models/event.model";
 
-interface LangAttr{
-    id: number,
-    name: string
+interface HumanCategoryAttr{
+    id: number
+    name: string;
+    start_age: number;
+    finish_age: number
 }
 
-@Table({tableName: "langs"})
-export class Lang extends Model<LangAttr>{
+@Table({tableName: "humancategory"})
+export class HumanCategory extends Model<HumanCategoryAttr> {
 
     @Column({
         type: DataType.INTEGER,
@@ -23,8 +24,15 @@ export class Lang extends Model<LangAttr>{
     })
     name: string
 
-    @HasMany(() => Customer)
-    customers: Customer[]
+    @Column({
+        type: DataType.SMALLINT
+    })
+    start_age: number
+
+    @Column({
+        type: DataType.SMALLINT
+    })
+    finish_age: number
 
     @HasMany(() => Event)
     events: Event[]

@@ -1,5 +1,6 @@
 import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
 import { Customer } from "../../customer/models/customer.model";
+import { Event } from "../../event/models/event.model";
 
 interface GenderAttr{
     id: number,
@@ -24,5 +25,8 @@ export class Gender extends Model<GenderAttr>{
 
     @HasMany(() => Customer)
     customers: Customer[]
+
+    @HasMany(() => Event)
+    events: Event[]
 
 }

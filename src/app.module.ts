@@ -28,6 +28,16 @@ import { Lang } from './lang/models/lang.model';
 import { CustomerAddress } from './customer_address/models/customer_address.models';
 import { Country } from './country/models/country.model';
 import { CustomerCardModule } from './customer_card/customer_card.module';
+import { VenueTypeModule } from './venue_type/venue_type.module';
+import { VenueType } from './venue_type/models/venue_type.model';
+import { CustomerCard } from './customer_card/models/customer_card.model';
+import { HumanCategoryModule } from './human_category/human_category.module';
+import { HumanCategory } from './human_category/models/human_category.model';
+import { EventTypeModule } from './event_type/event_type.module';
+import { EventModule } from './event/event.module';
+import { EventType } from './event_type/models/event_type.model';
+import { Event } from './event/models/event.model';
+import { TicketModule } from './ticket/ticket.module';
 
 @Module({
   imports: [
@@ -39,7 +49,7 @@ import { CustomerCardModule } from './customer_card/customer_card.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [Admin, Venue, Seat, SeatType, VenuePhoto, Region, District, Customer, Gender, Lang, CustomerAddress, Country],
+      models: [Admin, Venue, Seat, SeatType, VenuePhoto, Region, District, Customer, Gender, Lang, CustomerAddress, Country, CustomerCard, VenueType, HumanCategory, EventType, Event],
       autoLoadModels: true,
       logging: true
     }),
@@ -55,7 +65,12 @@ import { CustomerCardModule } from './customer_card/customer_card.module';
     LangModule,
     CustomerAddressModule,
     CountryModule,
-    CustomerCardModule
+    CustomerCardModule,
+    VenueTypeModule,
+    HumanCategoryModule,
+    EventTypeModule,
+    EventModule,
+    TicketModule
   ],
   controllers: [AppController],
   providers: [AppService],

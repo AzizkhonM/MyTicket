@@ -2,6 +2,9 @@ import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "
 import { Seat } from "../../seat/models/seat.model";
 import { Region } from "../../region/models/region.model";
 import { District } from "../../district/models/district.model";
+import { VenueType } from "../../venue_type/models/venue_type.model";
+import { VenuePhoto } from "../../venue-photo/models/venue-photo.model";
+import { Event } from "../../event/models/event.model";
 
 interface VenueAttr{
     id: number;
@@ -53,10 +56,13 @@ export class Venue extends Model<VenueAttr,Venue>{
     })
     phone_number: string
 
+    @ForeignKey(() => VenueType)
     @Column({
         type: DataType.INTEGER
     })
     venue_type_id: number
+    @BelongsTo(() => VenueType)
+    venue_types: VenueType[]
 
     @Column({
         type: DataType.STRING
@@ -81,5 +87,11 @@ export class Venue extends Model<VenueAttr,Venue>{
 
     @HasMany(() => Seat)
     seat: Seat[]
+
+    @HasMany(() => VenuePhoto)
+    venue_photos: VenuePhoto[]
+
+    @HasMany(() => Event)
+    events: Event[]
 
 }
