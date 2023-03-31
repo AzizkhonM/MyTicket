@@ -3,16 +3,16 @@ import { CustomerAddressService } from './customer_address.service';
 import { CreateCustomerAddressDto } from './dto/create-customer_address.dto';
 import { UpdateCustomerAddressDto } from './dto/update-customer_address.dto';
 
-@Controller('customer-address')
+@Controller('customeraddress')
 export class CustomerAddressController {
   constructor(private readonly customerAddressService: CustomerAddressService) {}
 
-  @Post()
+  @Post("add")
   create(@Body() createCustomerAddressDto: CreateCustomerAddressDto) {
     return this.customerAddressService.create(createCustomerAddressDto);
   }
 
-  @Get()
+  @Get("all")
   findAll() {
     return this.customerAddressService.findAll();
   }

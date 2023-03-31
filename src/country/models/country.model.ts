@@ -1,14 +1,13 @@
 import { Column, DataType, HasMany, Model, Table } from "sequelize-typescript";
-import { Venue } from "../../venue/models/venue.model";
 import { CustomerAddress } from "../../customer_address/models/customer_address.models";
 
-interface RegionAttr{
+interface CountryAttr{
     id: number;
     name: string
 }
 
-@Table({tableName: "regions"})
-export class Region extends Model<RegionAttr>{
+@Table({tableName: "country"})
+export class Country extends Model<CountryAttr>{
 
     @Column({
         type: DataType.INTEGER,
@@ -19,12 +18,9 @@ export class Region extends Model<RegionAttr>{
 
     @Column({
         type: DataType.STRING,
-        unique :true
+        unique: true
     })
     name: string
-
-    @HasMany(() => Venue)
-    venues: Venue[]
 
     @HasMany(() => CustomerAddress)
     customer_address: CustomerAddress[]

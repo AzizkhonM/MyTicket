@@ -15,6 +15,19 @@ import { CustomerModule } from './customer/customer.module';
 import { GenderModule } from './gender/gender.module';
 import { LangModule } from './lang/lang.module';
 import { CustomerAddressModule } from './customer_address/customer_address.module';
+import { CountryModule } from './country/country.module';
+import { Venue } from './venue/models/venue.model';
+import { Seat } from './seat/models/seat.model';
+import { SeatType } from './seat-type/models/seat-type.model';
+import { VenuePhoto } from './venue-photo/models/venue-photo.model';
+import { Region } from './region/models/region.model';
+import { District } from './district/models/district.model';
+import { Customer } from './customer/models/customer.model';
+import { Gender } from './gender/models/gender.model';
+import { Lang } from './lang/models/lang.model';
+import { CustomerAddress } from './customer_address/models/customer_address.models';
+import { Country } from './country/models/country.model';
+import { CustomerCardModule } from './customer_card/customer_card.module';
 
 @Module({
   imports: [
@@ -26,7 +39,7 @@ import { CustomerAddressModule } from './customer_address/customer_address.modul
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [Admin],
+      models: [Admin, Venue, Seat, SeatType, VenuePhoto, Region, District, Customer, Gender, Lang, CustomerAddress, Country],
       autoLoadModels: true,
       logging: true
     }),
@@ -40,7 +53,9 @@ import { CustomerAddressModule } from './customer_address/customer_address.modul
     CustomerModule,
     GenderModule,
     LangModule,
-    CustomerAddressModule
+    CustomerAddressModule,
+    CountryModule,
+    CustomerCardModule
   ],
   controllers: [AppController],
   providers: [AppService],

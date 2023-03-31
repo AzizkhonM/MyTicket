@@ -1,6 +1,7 @@
-import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { Gender } from "../../gender/models/gender.model";
 import { Lang } from "../../lang/models/lang.model";
+import { CustomerAddress } from "../../customer_address/models/customer_address.models";
 
 interface CustomerAttr{
     id: number;
@@ -76,5 +77,8 @@ export class Customer extends Model<CustomerAttr>{
         type: DataType.STRING
     })
     hashed_refresh_token: string
+
+    @HasMany(() => CustomerAddress)
+    customer_addresses: CustomerAddress[]
 
 }
