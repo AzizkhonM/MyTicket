@@ -38,6 +38,17 @@ import { EventModule } from './event/event.module';
 import { EventType } from './event_type/models/event_type.model';
 import { Event } from './event/models/event.model';
 import { TicketModule } from './ticket/ticket.module';
+import { CurrencyModule } from './currency/currency.module';
+import { Ticket } from './ticket/models/ticket.model';
+import { Currency } from './currency/models/currency.model';
+import { StatusModule } from './status/status.module';
+import { Status } from './status/models/status.model';
+import { TicketTypeModule } from './ticket_type/ticket_type.module';
+import { TicketType } from './ticket_type/models/ticket_type.model';
+import { ColorModule } from './color/color.module';
+import { Color } from './color/models/color.model';
+import { CartModule } from './cart/cart.module';
+import { Cart } from './cart/models/cart.model';
 
 @Module({
   imports: [
@@ -49,7 +60,31 @@ import { TicketModule } from './ticket/ticket.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [Admin, Venue, Seat, SeatType, VenuePhoto, Region, District, Customer, Gender, Lang, CustomerAddress, Country, CustomerCard, VenueType, HumanCategory, EventType, Event],
+      models: [
+        Admin,
+        Venue, 
+        Seat,
+        SeatType,
+        VenuePhoto,
+        Region,
+        District,
+        Customer,
+        Gender,
+        Lang,
+        CustomerAddress,
+        Country,
+        CustomerCard,
+        VenueType,
+        HumanCategory,
+        EventType,
+        Event, 
+        Ticket, 
+        Currency, 
+        Status, 
+        TicketType, 
+        Color, 
+        Cart
+      ],
       autoLoadModels: true,
       logging: true
     }),
@@ -70,7 +105,12 @@ import { TicketModule } from './ticket/ticket.module';
     HumanCategoryModule,
     EventTypeModule,
     EventModule,
-    TicketModule
+    TicketModule,
+    CurrencyModule,
+    StatusModule,
+    TicketTypeModule,
+    ColorModule,
+    CartModule
   ],
   controllers: [AppController],
   providers: [AppService],

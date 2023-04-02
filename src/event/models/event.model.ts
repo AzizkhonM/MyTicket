@@ -1,9 +1,10 @@
-import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript"
+import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript"
 import { EventType } from "../../event_type/models/event_type.model"
 import { HumanCategory } from "../../human_category/models/human_category.model"
 import { Gender } from "../../gender/models/gender.model"
 import { Venue } from "../../venue/models/venue.model"
 import { Lang } from "../../lang/models/lang.model"
+import { Ticket } from "../../ticket/models/ticket.model"
 
 interface EventAttr{
     id: number
@@ -112,5 +113,8 @@ export class Event extends Model<EventAttr>{
         defaultValue: DataType.NOW
     })
     release_date: Date
+
+    @HasMany(() => Ticket)
+    tickets: Ticket[]
     
 }

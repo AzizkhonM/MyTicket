@@ -1,6 +1,7 @@
-import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { Venue } from "../../venue/models/venue.model";
 import { SeatType } from "../../seat-type/models/seat-type.model";
+import { Ticket } from "../../ticket/models/ticket.model";
 
 interface SeatAttr{
     id: number,
@@ -57,5 +58,8 @@ export class Seat extends Model<SeatAttr>{
        type: DataType.STRING
     })
     location_in_schema: string
+
+    @HasMany(() => Ticket)
+    tickets: Ticket[]
 
 }
