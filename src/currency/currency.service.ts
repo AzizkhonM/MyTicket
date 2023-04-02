@@ -9,6 +9,8 @@ export class CurrencyService {
   constructor(@InjectModel(Currency) private readonly currencyRepo: typeof Currency) {}
 
   create(createCurrencyDto: CreateCurrencyDto) {
+    console.log(createCurrencyDto);
+    
     return this.currencyRepo.create(createCurrencyDto);
   }
 
