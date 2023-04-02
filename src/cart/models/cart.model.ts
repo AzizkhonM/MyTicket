@@ -1,5 +1,6 @@
 import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
 import { Status } from "../../status/models/status.model";
+import { StatusCart } from "../../status_cart/models/status_cart.model";
 
 interface CartAttr{
     id: number
@@ -40,12 +41,12 @@ export class Cart extends Model<CartAttr>{
     })
     finishesAt: string
 
-    @ForeignKey(() => Status)
+    @ForeignKey(() => StatusCart)
     @Column({
         type: DataType.INTEGER
     })
     status_id: number
-    @BelongsTo(() => Status)
-    status: Status[]
+    @BelongsTo(() => StatusCart)
+    status: StatusCart[]
 
 }

@@ -49,6 +49,18 @@ import { ColorModule } from './color/color.module';
 import { Color } from './color/models/color.model';
 import { CartModule } from './cart/cart.module';
 import { Cart } from './cart/models/cart.model';
+import { BookingModule } from './booking/booking.module';
+import { Booking } from './booking/models/booking.model';
+import { StatusCartModule } from './status_cart/status_cart.module';
+import { StatusCart } from './status_cart/models/status_cart.model';
+import { PaymentMethodModule } from './payment_method/payment_method.module';
+import { PaymentMethod } from './payment_method/models/payment_method.model';
+import { DeliveryMethodModule } from './delivery_method/delivery_method.module';
+import { DeliveryMethod } from './delivery_method/models/delivery_method.model';
+import { DiscountCouponModule } from './discount_coupon/discount_coupon.module';
+import { DiscountCoupon } from './discount_coupon/models/discount_coupon.model';
+import { StatusBookingModule } from './status_booking/status_booking.module';
+import { StatusBooking } from './status_booking/models/status_booking.model';
 
 @Module({
   imports: [
@@ -83,7 +95,13 @@ import { Cart } from './cart/models/cart.model';
         Status, 
         TicketType, 
         Color, 
-        Cart
+        Cart,
+        Booking,
+        StatusCart,
+        PaymentMethod,
+        DeliveryMethod,
+        DiscountCoupon,
+        StatusBooking
       ],
       autoLoadModels: true,
       logging: true
@@ -110,7 +128,13 @@ import { Cart } from './cart/models/cart.model';
     StatusModule,
     TicketTypeModule,
     ColorModule,
-    CartModule
+    CartModule,
+    BookingModule,
+    StatusCartModule,
+    PaymentMethodModule,
+    DeliveryMethodModule,
+    DiscountCouponModule,
+    StatusBookingModule
   ],
   controllers: [AppController],
   providers: [AppService],

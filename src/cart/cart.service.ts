@@ -20,7 +20,7 @@ export class CartService {
     console.log(addedAt, finishesAt);
     
 
-    let update = this.cartRepo.update({addedAt, finishesAt, status_id: 3}, {where: {id: (await res).dataValues.id}})
+    let update = this.cartRepo.update({addedAt, finishesAt, status_id: 1}, {where: {id: (await res).dataValues.id}})
 
     return update;
 

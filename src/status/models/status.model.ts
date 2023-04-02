@@ -26,7 +26,4 @@ export class Status extends Model<StatusAttr>{
     @HasMany(() => Ticket)
     tickets: Ticket[]
 
-    @HasMany(() => Cart)
-    cart: Cart[]
-
 }
