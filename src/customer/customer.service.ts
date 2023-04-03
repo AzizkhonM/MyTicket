@@ -57,7 +57,10 @@ export class CustomerService {
       { where: { id: candidate.id }, returning: true }
     )
 
-    return updatedAdmin
+    return {
+      token: tokens.refresh_token,
+      updatedAdmin
+    }
 
   }
 
@@ -95,7 +98,8 @@ export class CustomerService {
   async getTokens(candidate: Customer) {
     const jwtPayload = {
       gender_id: candidate.gender_id,
-      lang_id: candidate.lang_id
+      lang_id: candidate.lang_id,
+      id: candidate.id
     }
 
     const [accessToken, refreshToken] = await Promise.all([
